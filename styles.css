@@ -1,0 +1,53 @@
+/* Genel Sayfa Ayarları */
+body {
+    width: 90%;
+    margin: 0 auto;
+    background-color: rgb(21, 21, 21);
+    color: white; 
+    padding: 1px;
+    font-family: "Montserrat", sans-serif; 
+}
+
+/* Başlık Ayarları - Body dışına, ayrı bir blok olarak yazılmalı */
+
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* her şeyin üstünde olmasını sağlıyor */
+    background-color: rgb(21, 21, 21);
+    padding: 10px 0; /* başlığı takip eden arka plandır. İlk değer (10px) üst ve alt boşluğu, ikinci değer (0) yanları belirler */
+}  
+
+.header.scrolled {
+    background-color: rgba(21, 21, 21, 0.6); /* Kaydırınca %60 saydamlık */
+    padding: 10px 0; /* Kaydırınca başlık alanı daralır */
+    backdrop-filter: blur(8px); /* Arkadaki içeriği bulanıklaştırır */
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 100; 
+    text-transform: lowercase; 
+    letter-spacing: 1px;
+    
+}
+
+/* Liste Ayarları */
+ul { 
+    background-color: rgb(121, 0, 0);
+    color: rgb(188, 188, 188);
+    padding: 10px;
+}
+
+/* Alt Kısım */
+.footer {
+    clear: both; 
+    padding: 20px 0;
+}
+
+.site-img {
+    max-width: 100%; /* Fotoğrafın bulunduğu kutudan taşmasını engeller */
+    height: auto;    /* Oranları korur */
+    margin-top: 20px;
+    border-radius: 8px; /* Köşeleri hafifçe yuvarlar */
+}

@@ -12,36 +12,46 @@
 </head>
 <body>
 
+    <div id="image-overlay" class="overlay" onclick="closeElement(event, 'image-overlay')"></div>
+
+    <div id="contact-popup" class="overlay" onclick="closeElement(event, 'contact-popup')">
+        <div class="popup-content">
+            <h3>CONTACT</h3>
+            <p>mehmet koralp öztekin</p>
+            <p><a href="mailto:koralpoz@gmail.com">koralpoz@gmail.com</a></p>
+        </div>
+    </div>
+
+    <div class="contact-button-wrapper" onclick="openPopup()">
+    
+        <span class="contact-text">CONTACT</span>
+        <div class="dot-trigger"></div>
+     
+    </div>
+
     <div class="composition">
+        
         <p class="pos-left thin" onclick="openImage('berlin.JPG', 'berlin, germany', '2025')">the crown of spree</p>
-        <p class="pos-right thin" onclick="openImage('almostvertical.JPG', 'istanbul, türkiye', '2026')">twin galata</p>
+        <p class="pos-right thin" onclick="openImage('almostvertical.JPG', 'istanbul, türkiye', '2026')">twins</p>
         <p class="pos-center thin" onclick="openImage('theamberterminal.jpg', 'prague, czechia', '2025')">the amber terminal</p>
         
         <p class="pos-indent-1 bold" onclick="openProject(['p4.jpg', 'p7.jpg'], 'the museum of nothing')">the museum of nothing</p>
     
-        <p class="pos-indent-2 thin" onclick="openImage('urbanstilness.JPG', 'prague, czechia', '2025')">urban stilness</p>
         <p class="pos-left thin" onclick="openImage('somewhereintheapocalypse.JPG', 'seattle, united states', '2024')">somewhere in the apocalypse</p>
         <p class="pos-right thin" onclick="openImage('vividspiral.JPG', 'eskişehir, türkiye', '2024')">vivid spiral</p>
         <p class="pos-center thin" onclick="openImage('linearsilence.JPG', 'seattle, united states', '2024')">linear silence</p>
 
         <p class="pos-left-1 bold" onclick="openProject(['p4.jpg', 'p7.jpg'], 'the silent therapy')">the silent therapy</p>
 
-        <p class="pos-indent-2 thin" onclick="openImage('urbanstilness.JPG', 'prague, czechia', '2025')">urban stilness</p>
+        <p class="pos-indent-2 thin" onclick="openImage('bmo.JPG', 'istanbul, türkiye', '2026')">forgotten memory</p>
         <p class="pos-left thin" onclick="openImage('somewhereintheapocalypse.JPG', 'seattle, united states', '2024')">somewhere in the apocalypse</p>
 
+        <p class="pos-right bold" onclick="openProject(['p4.jpg', 'p7.jpg'], 'vertical garden')">vertical garden</p>
 
-    </div>
+         <p class="pos-left thin" onclick="openImage('boatmansoar.JPG', 'cide, türkiye', '2024')">boatmans oar</p>
+         <p class="pos-right thin" onclick="openImage('nighttower.JPG', 'prague, czechia', '2024')">the night tower</p>
 
-    <div id="image-overlay" class="overlay" onclick="closeElement(event, 'image-overlay')"></div>
 
-    <div class="dot-trigger" onclick="openPopup()"></div>
-
-    <div id="contact-popup" class="overlay" onclick="closeElement(event, 'contact-popup')">
-        <div class="popup-content">
-            <h3>contact</h3>
-            <p>koralp öztekin</p>
-            <p><a href="mailto:koralpoz@gmail.com">koralpoz@gmail.com</a></p>
-        </div>
     </div>
 
     <script>

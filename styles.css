@@ -6,6 +6,34 @@ body {
     overflow-x: hidden;
 }
 
+.contact-button-wrapper {
+    position: fixed;
+    bottom: 44px;
+    right: 70px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    z-index: 6000;
+}
+
+.contact-text {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: lowercase; 
+    font-weight: 600; 
+    font-size: 0.8rem; 
+    letter-spacing: 1px;
+    color: black;
+}
+
+
+.dot-trigger {
+    width: 10px;
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+}
+
 .composition {
     max-width: 600px; 
     margin: 100px auto; 

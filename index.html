@@ -1,56 +1,85 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>koralp.exe</title>
+    <title>koralp</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-<link rel="icon" type="image/png" href="favicon.png">
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-             <h1>web sitesi başlığı</h1>
-        </div>
+
+    <div class="composition">
+        <p class="pos-left thin" onclick="openImage('berlin.JPG', 'berlin, germany', '2025')">the crown of spree</p>
+        <p class="pos-right thin" onclick="openImage('almostvertical.JPG', 'istanbul, türkiye', '2026')">twin galata</p>
+        <p class="pos-center thin" onclick="openImage('theamberterminal.jpg', 'prague, czechia', '2025')">the amber terminal</p>
         
-        <div class="sidebar">
-            <h2>Sidebar</h2>
-            <ul>
-                <li>link1</li>
-                <li>link2</li>
-            </ul>
-        </div>
-
-        <div class="main-content">
-            <h2>Main Content</h2>
-            <p>This is the main content</p>
-              
+        <p class="pos-indent-1 bold" onclick="openProject(['p4.jpg', 'p7.jpg'], 'the museum of nothing')">the museum of nothing</p>
     
-    <img src="berlin.JPG" alt="berlin 2025" class="site-img">
+        <p class="pos-indent-2 thin" onclick="openImage('urbanstilness.JPG', 'prague, czechia', '2025')">urban stilness</p>
+        <p class="pos-left thin" onclick="openImage('somewhereintheapocalypse.JPG', 'seattle, united states', '2024')">somewhere in the apocalypse</p>
+        <p class="pos-right thin" onclick="openImage('vividspiral.JPG', 'eskişehir, türkiye', '2024')">vivid spiral</p>
+        <p class="pos-center thin" onclick="openImage('linearsilence.JPG', 'seattle, united states', '2024')">linear silence</p>
 
-         <h3>Mimari Açıklama</h3>
-                <p class="mimari-not">Bu bir mimari açıklama metnidir.</p>
-                <p class="mimari-not">Bu da aynı stili taşıyan başka bir metindir.</p>
+        <p class="pos-left-1 bold" onclick="openProject(['p4.jpg', 'p7.jpg'], 'the silent therapy')">the silent therapy</p>
 
+        <p class="pos-indent-2 thin" onclick="openImage('urbanstilness.JPG', 'prague, czechia', '2025')">urban stilness</p>
+        <p class="pos-left thin" onclick="openImage('somewhereintheapocalypse.JPG', 'seattle, united states', '2024')">somewhere in the apocalypse</p>
+
+
+    </div>
+
+    <div id="image-overlay" class="overlay" onclick="closeElement(event, 'image-overlay')"></div>
+
+    <div class="dot-trigger" onclick="openPopup()"></div>
+
+    <div id="contact-popup" class="overlay" onclick="closeElement(event, 'contact-popup')">
+        <div class="popup-content">
+            <h3>contact</h3>
+            <p>koralp öztekin</p>
+            <p><a href="mailto:koralpoz@gmail.com">koralpoz@gmail.com</a></p>
         </div>
+    </div>
 
-        <div class="footer">
-            &copy; <a href="https://example.com" target="_blank" style="color: lightblue;">benim web sitem</a>
-        </div>
-        <script>
-        window.onscroll = function() {
-            const header = document.querySelector('.header');
-            if (window.scrollY > 50) { // 50px aşağı inince aktif olur
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
+    <script>
+        function openImage(imgSrc, location, date) {
+            const overlay = document.getElementById('image-overlay');
+            overlay.innerHTML = `
+                <div class="image-wrapper">
+                    <img src="${imgSrc}" id="expanded-img" alt="proje">
+                    <div id="image-info"><i>${location} — ${date}</i></div>
+                </div>
+            `;
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openProject(images, title) {
+            const overlay = document.getElementById('image-overlay');
+            overlay.innerHTML = `
+                <div class="project-gallery">
+                    <div class="project-info"><h2>${title}</h2></div>
+                    ${images.map(src => `<img src="${src}">`).join('')}
+                </div>`;
+            overlay.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function openPopup() {
+            document.getElementById('contact-popup').style.display = 'flex';
+        }
+
+        function closeElement(event, elementId) {
+            if (event.target.id === elementId || event.target.className === 'project-gallery' || event.target.className === 'image-wrapper') {
+                const overlay = document.getElementById(elementId);
+                overlay.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                overlay.innerHTML = '';
             }
-        };
+        }
     </script>
 </body>
-    </div> </body>
 </html>

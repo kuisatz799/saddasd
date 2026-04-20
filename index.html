@@ -12,6 +12,17 @@
 </head>
 <body>
 
+    <div id="ui-elements">
+        <div class="side-name" onclick="openAbout()">
+            m. koralp öztekin
+        </div>
+
+        <div class="contact-button-wrapper" onclick="openPopup()">
+            <span class="contact-text">CONTACT</span>
+            <div class="dot-trigger"></div>
+        </div>
+    </div>
+
     <div id="image-overlay" class="overlay" onclick="closeElement(event, 'image-overlay')"></div>
 
     <div id="contact-popup" class="overlay" onclick="closeElement(event, 'contact-popup')">
@@ -22,52 +33,70 @@
         </div>
     </div>
 
-    <div class="contact-button-wrapper" onclick="openPopup()">
-    
-        <span class="contact-text">CONTACT</span>
-        <div class="dot-trigger"></div>
-     
+    <div id="about-popup" class="overlay" onclick="closeElement(event, 'about-popup')">
+        <div class="popup-content">
+            <h3>about</h3>
+            <p>architecture student — msgsü</p>
+            <p>focused on phenomenology & liminality</p>
+            <p>based in istanbul</p>
+        </div>
     </div>
 
     <div class="composition">
-        
         <p class="pos-left thin" onclick="openImage('berlin.JPG', 'berlin, germany', '2025')">the crown of spree</p>
         <p class="pos-right thin" onclick="openImage('almostvertical.JPG', 'istanbul, türkiye', '2026')">twins</p>
         <p class="pos-center thin" onclick="openImage('theamberterminal.jpg', 'prague, czechia', '2025')">the amber terminal</p>
         
-        <p class="pos-indent-1 bold" onclick="openProject(['p4.jpg', 'p7.jpg'], 'the museum of nothing')">the museum of nothing</p>
+        <a href="project.html" style="text-decoration: none; color: inherit;">
+    <p class="pos-indent-1 bold">the museum of nothing</p>
+        </a>
     
         <p class="pos-left thin" onclick="openImage('somewhereintheapocalypse.JPG', 'seattle, united states', '2024')">somewhere in the apocalypse</p>
         <p class="pos-right thin" onclick="openImage('vividspiral.JPG', 'eskişehir, türkiye', '2024')">vivid spiral</p>
         <p class="pos-center thin" onclick="openImage('linearsilence.JPG', 'seattle, united states', '2024')">linear silence</p>
+        <p class="pos-right thin" onclick="openImage('cross.JPG', 'genoa, italy', '2024')">the cross</p>
+        <p class="pos-left thin" onclick="openImage('gate.JPG', 'berlin, germany', '2025')">the gate</p>
 
-        <p class="pos-left-1 bold" onclick="openProject(['p4.jpg', 'p7.jpg'], 'the silent therapy')">the silent therapy</p>
+        <a href="therapy.html" style="text-decoration: none; color: inherit;">
+    <p class="pos-indent-2 bold">the silent therapy</p>
+        </a>
 
         <p class="pos-indent-2 thin" onclick="openImage('bmo.JPG', 'istanbul, türkiye', '2026')">forgotten memory</p>
-        <p class="pos-left thin" onclick="openImage('somewhereintheapocalypse.JPG', 'seattle, united states', '2024')">somewhere in the apocalypse</p>
+        <p class="pos-left thin" onclick="openImage('urbanstilness.JPG', 'prague, czechia', '2024')">urban stilness</p>
+        <p class="pos-center thin" onclick="openImage('copper.JPG', 'berlin, germany', '2025')">the copper</p>
 
-        <p class="pos-right bold" onclick="openProject(['p4.jpg', 'p7.jpg'], 'vertical garden')">vertical garden</p>
+        <a href="garden.html" style="text-decoration: none; color: inherit;">
+    <p class="pos-right bold">vertical garden</p>
+        </a>
 
-         <p class="pos-left thin" onclick="openImage('boatmansoar.JPG', 'cide, türkiye', '2024')">boatmans oar</p>
-         <p class="pos-right thin" onclick="openImage('nighttower.JPG', 'prague, czechia', '2024')">the night tower</p>
-
-
+        <p class="pos-left thin" onclick="openImage('boatmansoar.JPG', 'cide, türkiye', '2024')">boatmans oar</p>
+        <p class="pos-right thin" onclick="openImage('nighttower.JPG', 'prague, czechia', '2024')">the night tower</p>
+        <p class="pos-center thin" onclick="openImage('triangle.JPG', 'istanbul, türkiye', '2025')">the triangle</p>
+        <p class="pos-left thin" onclick="openImage('uni.JPG', 'milano, italy', '2024')">the unification</p>
+        <p class="pos-right thin" onclick="openImage('charlie.JPG', 'berlin, germany', '2025')">charlie</p>
+        <p class="pos-left thin" onclick="openImage('concrete.JPG', 'krakow, poland', '2026')">concrete</p>
+        
     </div>
 
     <script>
+        const ui = document.getElementById('ui-elements');
+
         function openImage(imgSrc, location, date) {
+
+            ui.style.display = 'none';
             const overlay = document.getElementById('image-overlay');
             overlay.innerHTML = `
                 <div class="image-wrapper">
-                    <img src="${imgSrc}" id="expanded-img" alt="proje">
-                    <div id="image-info"><i>${location} — ${date}</i></div>
+                    <img src="${imgSrc}" id="expanded-img" alt="${location}" loading="lazy">
+                  <div id="image-info"><i>${location} — ${date}</i></div>
                 </div>
-            `;
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+    `;
+    overlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
         }
 
         function openProject(images, title) {
+            ui.style.display = 'none';
             const overlay = document.getElementById('image-overlay');
             overlay.innerHTML = `
                 <div class="project-gallery">
@@ -79,15 +108,24 @@
         }
 
         function openPopup() {
+            ui.style.display = 'none';
             document.getElementById('contact-popup').style.display = 'flex';
+        }
+
+        function openAbout() {
+            ui.style.display = 'none';
+            document.getElementById('about-popup').style.display = 'flex';
         }
 
         function closeElement(event, elementId) {
             if (event.target.id === elementId || event.target.className === 'project-gallery' || event.target.className === 'image-wrapper') {
+                ui.style.display = 'block';
                 const overlay = document.getElementById(elementId);
                 overlay.style.display = 'none';
                 document.body.style.overflow = 'auto';
-                overlay.innerHTML = '';
+                if (elementId === 'image-overlay') {
+                    overlay.innerHTML = '';
+                }
             }
         }
     </script>

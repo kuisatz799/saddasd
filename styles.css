@@ -131,11 +131,10 @@ body {
 #expanded-img {
     max-height: 80vh;
     max-width: 100%;
-    width: auto;
+    width: auto !important; 
+    height: auto !important; 
     display: block;
-    cursor: default;
-    object-fit: contain; 
-    background-color: rgba(0,0,0,0.03); 
+    object-fit: contain;
 }
 
 #image-info {

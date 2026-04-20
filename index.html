@@ -43,38 +43,38 @@
     </div>
 
     <div class="composition">
-        <p class="pos-left thin" onclick="openImage('berlin.JPG', 'berlin, germany', '2025')">the crown of spree</p>
-        <p class="pos-right thin" onclick="openImage('almostvertical.JPG', 'istanbul, türkiye', '2026')">twins</p>
+        <p class="pos-left thin" onclick="openImage('berlin.jpg', 'berlin, germany', '2025')">the crown of spree</p>
+        <p class="pos-right thin" onclick="openImage('almostvertical.jpg', 'istanbul, türkiye', '2026')">twins</p>
         <p class="pos-center thin" onclick="openImage('theamberterminal.jpg', 'prague, czechia', '2025')">the amber terminal</p>
         
         <a href="project.html" style="text-decoration: none; color: inherit;">
     <p class="pos-indent-1 bold">the museum of nothing</p>
         </a>
     
-        <p class="pos-left thin" onclick="openImage('somewhereintheapocalypse.JPG', 'seattle, united states', '2024')">somewhere in the apocalypse</p>
-        <p class="pos-right thin" onclick="openImage('vividspiral.JPG', 'eskişehir, türkiye', '2024')">vivid spiral</p>
-        <p class="pos-center thin" onclick="openImage('linearsilence.JPG', 'seattle, united states', '2024')">linear silence</p>
-        <p class="pos-right thin" onclick="openImage('cross.JPG', 'genoa, italy', '2024')">the cross</p>
-        <p class="pos-left thin" onclick="openImage('gate.JPG', 'berlin, germany', '2025')">the gate</p>
+        <p class="pos-left thin" onclick="openImage('somewhereintheapocalypse.jpg', 'seattle, united states', '2024')">somewhere in the apocalypse</p>
+        <p class="pos-right thin" onclick="openImage('vividspiral.jpg', 'eskişehir, türkiye', '2024')">vivid spiral</p>
+        <p class="pos-center thin" onclick="openImage('linearsilence.jpg', 'seattle, united states', '2024')">linear silence</p>
+        <p class="pos-right thin" onclick="openImage('cross.jpg', 'genoa, italy', '2024')">the cross</p>
+        <p class="pos-left thin" onclick="openImage('gate.jpg', 'berlin, germany', '2025')">the gate</p>
 
         <a href="therapy.html" style="text-decoration: none; color: inherit;">
     <p class="pos-indent-2 bold">the silent therapy</p>
         </a>
 
-        <p class="pos-indent-2 thin" onclick="openImage('bmo.JPG', 'istanbul, türkiye', '2026')">forgotten memory</p>
-        <p class="pos-left thin" onclick="openImage('urbanstilness.JPG', 'prague, czechia', '2024')">urban stilness</p>
-        <p class="pos-center thin" onclick="openImage('copper.JPG', 'berlin, germany', '2025')">the copper</p>
+        <p class="pos-indent-2 thin" onclick="openImage('bmo.jpg', 'istanbul, türkiye', '2026')">forgotten memory</p>
+        <p class="pos-left thin" onclick="openImage('urbanstilness.jpg', 'prague, czechia', '2024')">urban stilness</p>
+        <p class="pos-center thin" onclick="openImage('copper.jpg', 'berlin, germany', '2025')">the copper</p>
 
         <a href="garden.html" style="text-decoration: none; color: inherit;">
     <p class="pos-right bold">vertical garden</p>
         </a>
 
-        <p class="pos-left thin" onclick="openImage('boatmansoar.JPG', 'cide, türkiye', '2024')">boatmans oar</p>
-        <p class="pos-right thin" onclick="openImage('nighttower.JPG', 'prague, czechia', '2024')">the night tower</p>
-        <p class="pos-center thin" onclick="openImage('triangle.JPG', 'istanbul, türkiye', '2025')">the triangle</p>
-        <p class="pos-left thin" onclick="openImage('uni.JPG', 'milano, italy', '2024')">the unification</p>
-        <p class="pos-right thin" onclick="openImage('charlie.JPG', 'berlin, germany', '2025')">charlie</p>
-        <p class="pos-left thin" onclick="openImage('concrete.JPG', 'krakow, poland', '2026')">concrete</p>
+        <p class="pos-left thin" onclick="openImage('boatmansoar.jpg', 'cide, türkiye', '2024')">boatmans oar</p>
+        <p class="pos-right thin" onclick="openImage('nighttower.jpg', 'prague, czechia', '2024')">the night tower</p>
+        <p class="pos-center thin" onclick="openImage('triangle.jpg', 'istanbul, türkiye', '2025')">the triangle</p>
+        <p class="pos-left thin" onclick="openImage('uni.jpg', 'milano, italy', '2024')">the unification</p>
+        <p class="pos-right thin" onclick="openImage('charlie.jpg', 'berlin, germany', '2025')">charlie</p>
+        <p class="pos-left thin" onclick="openImage('concrete.jpg', 'krakow, poland', '2026')">concrete</p>
         
     </div>
 
@@ -118,16 +118,19 @@
         }
 
         function closeElement(event, elementId) {
-            if (event.target.id === elementId || event.target.className === 'project-gallery' || event.target.className === 'image-wrapper') {
-                ui.style.display = 'block';
-                const overlay = document.getElementById(elementId);
-                overlay.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                if (elementId === 'image-overlay') {
-                    overlay.innerHTML = '';
-                }
-            }
+    if (event.target.id === elementId || event.target.className === 'project-gallery' || event.target.className === 'image-wrapper') {
+        ui.style.display = 'block';
+        const overlay = document.getElementById(elementId);
+        overlay.style.display = 'none';
+        
+        document.body.style.overflow = '';
+        document.documentElement.style.overflow = ''; 
+        
+        if (elementId === 'image-overlay') {
+            overlay.innerHTML = '';
         }
+    }
+}
     </script>
 </body>
 </html>

@@ -360,16 +360,13 @@ body::after {
     pointer-events: none;
 }
 
-/* ========================================== */
-/* MOBİL */
-/* ========================================== */
+
 @media screen and (max-width: 768px) {
 
     body {
         overflow-x: hidden;
     }
 
-    /* Ad: fixed sol üst, küçük — içerikle çakışmaz */
     .side-name {
         position: fixed;
         top: 20px;
@@ -384,7 +381,6 @@ body::after {
         margin: 0;
     }
 
-    /* Contact: fixed sağ alt, küçük */
     .contact-button-wrapper {
         position: fixed;
         right: 20px;
@@ -402,7 +398,6 @@ body::after {
         height: 22px;
     }
 
-    /* Composition: üstte az boşluk bırak, yazılar rastgele dağılır */
     .composition {
         max-width: 90%;
         margin: 50px auto 80px auto;
@@ -415,7 +410,6 @@ body::after {
         padding: 0 5px;
     }
 
-    /* Pozisyon sınıfları korunur — shuffleAndRandomize çalışmaya devam eder */
     .random-left, .pos-left, .pos-indent-1 {
         text-align: left !important;
         padding-left: 2% !important;
@@ -434,7 +428,6 @@ body::after {
         padding-right: 0 !important;
     }
 
-    /* Popup */
     .popup-content {
         width: 88%;
         min-height: auto;
@@ -461,7 +454,6 @@ body::after {
         letter-spacing: 2px !important;
     }
 
-    /* Fotoğraf overlay */
     .image-wrapper {
         max-width: 95%;
     }
@@ -481,7 +473,6 @@ body::after {
 }
 @media screen and (max-width: 768px) {
 
-    /* Scrollbar gizle */
     * {
         -ms-overflow-style: none;
         scrollbar-width: none;
@@ -491,7 +482,6 @@ body::after {
         width: 0;
     }
 
-    /* Üst fade şerit */
     body::before {
         content: '';
         position: fixed;
@@ -504,7 +494,6 @@ body::after {
         pointer-events: none;
     }
 
-    /* Alt fade şerit */
     body::after {
         content: '';
         position: fixed;
@@ -517,7 +506,6 @@ body::after {
         pointer-events: none;
     }
 
-    /* Contact şeridin üstünde, kenar boşluğu ad ile aynı */
     .contact-button-wrapper {
         z-index: 9500;
         right: 12px;
@@ -537,12 +525,10 @@ body::after {
         padding-left: 0 !important;
     }
 
-    /* Yazı boyutu */
     .composition p {
         font-size: clamp(1.03rem, 5.1vw, 1.5rem);
     }
 
-    /* Ad ve contact boyutları */
     .side-name {
         font-size: 0.72rem;
     }

@@ -37,7 +37,7 @@ body {
     font-size: 1.2rem; 
     letter-spacing: 1px;
     text-transform: lowercase;
-    z-index: 8000;
+    z-index: 10;
     color: black;
     cursor: pointer;
     transition: opacity 0.3s ease;
@@ -61,7 +61,7 @@ body {
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    z-index: 8000;
+    z-index: 10;
 }
 
 .contact-text {
@@ -133,7 +133,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: rgba(255, 255, 255, 0.98);
-    z-index: 5000;
+    z-index: 9999;
     justify-content: center;
     align-items: center;
 }
@@ -333,9 +333,6 @@ body {
     margin-top: 10px !important;
 }
 
-/* ========================================== */
-/* DESKTOP FADE ŞERİTLER */
-/* ========================================== */
 body::before {
     content: '';
     position: fixed;
@@ -344,7 +341,7 @@ body::before {
     width: 100%;
     height: 160px;
     background: linear-gradient(to bottom, rgb(248, 248, 248) 30%, rgba(248, 248, 248, 0) 100%);
-    z-index: 7500;
+    z-index: 5;
     pointer-events: none;
 }
 
@@ -356,46 +353,57 @@ body::after {
     width: 100%;
     height: 160px;
     background: linear-gradient(to top, rgb(248, 248, 248) 30%, rgba(248, 248, 248, 0) 100%);
-    z-index: 7500;
+    z-index: 5;
     pointer-events: none;
 }
 
-
 @media screen and (max-width: 768px) {
-
     body {
         overflow-x: hidden;
+    }
+
+    body::before {
+        height: 110px;
+        background: linear-gradient(to bottom, rgb(248, 248, 248) 27%, rgba(248, 248, 248, 0) 100%);
+        z-index: 5;
+    }
+
+    body::after {
+        height: 110px;
+        background: linear-gradient(to top, rgb(248, 248, 248) 27%, rgba(248, 248, 248, 0) 100%);
+        z-index: 5;
     }
 
     .side-name {
         position: fixed;
         top: 20px;
         left: 20px;
-        font-size: 0.9rem;
+        font-size: 0.72rem;
         letter-spacing: 1px;
         line-height: 1.3;
         max-width: 160px;
         width: auto;
         text-align: left;
-        z-index: 9000;
+        z-index: 10;
         margin: 0;
     }
 
     .contact-button-wrapper {
         position: fixed;
-        right: 20px;
+        right: 12px;
         bottom: 20px;
         gap: 8px;
+        z-index: 10;
     }
 
     .contact-text {
-        font-size: 0.75rem;
+        font-size: 0.6rem;
         letter-spacing: 1px;
     }
 
     .dot-trigger {
-        width: 22px;
-        height: 22px;
+        width: 18px;
+        height: 18px;
     }
 
     .composition {
@@ -405,20 +413,19 @@ body::after {
     }
 
     .composition p {
-        font-size: clamp(1.1rem, 5.5vw, 1.6rem);
+        font-size: clamp(1.03rem, 5.1vw, 1.5rem);
         line-height: 1.25;
-        padding: 0 5px;
     }
 
     .random-left, .pos-left, .pos-indent-1 {
         text-align: left !important;
-        padding-left: 2% !important;
+        padding-left: 15% !important;
         padding-right: 0 !important;
     }
 
     .random-right, .pos-right, .pos-indent-2 {
         text-align: right !important;
-        padding-right: 2% !important;
+        padding-right: 15% !important;
         padding-left: 0 !important;
     }
 
@@ -469,76 +476,5 @@ body::after {
 
     .project-gallery img {
         max-width: 95%;
-    }
-}
-@media screen and (max-width: 768px) {
-
-    * {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
-    }
-    *::-webkit-scrollbar {
-        display: none;
-        width: 0;
-    }
-
-    body::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 110px;
-        background: linear-gradient(to bottom, rgb(248, 248, 248) 27%, rgba(248, 248, 248, 0) 100%);
-        z-index: 8500;
-        pointer-events: none;
-    }
-
-    body::after {
-        content: '';
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 110px;
-        background: linear-gradient(to top, rgb(248, 248, 248) 27%, rgba(248, 248, 248, 0) 100%);
-        z-index: 8500;
-        pointer-events: none;
-    }
-
-    .contact-button-wrapper {
-        z-index: 9500;
-        right: 12px;
-        bottom: 20px;
-    }
-
-    /* Yazılar kenarlardan uzak */
-    .random-left, .pos-left, .pos-indent-1 {
-        text-align: left !important;
-        padding-left: 15% !important;
-        padding-right: 0 !important;
-    }
-
-    .random-right, .pos-right, .pos-indent-2 {
-        text-align: right !important;
-        padding-right: 15% !important;
-        padding-left: 0 !important;
-    }
-
-    .composition p {
-        font-size: clamp(1.03rem, 5.1vw, 1.5rem);
-    }
-
-    .side-name {
-        font-size: 0.72rem;
-    }
-
-    .contact-text {
-        font-size: 0.6rem;
-    }
-
-    .dot-trigger {
-        width: 18px;
-        height: 18px;
     }
 }

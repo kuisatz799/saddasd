@@ -93,6 +93,33 @@ body {
     gap: 15px;
 }
 
+/* ========================================== */
+/* FADE ŞERİTLER (SADECE ANA MENÜ İÇİN)       */
+/* ========================================== */
+.composition::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(to bottom, rgb(248, 248, 248) 30%, rgba(248, 248, 248, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
+.composition::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(to top, rgb(248, 248, 248) 30%, rgba(248, 248, 248, 0) 100%);
+    z-index: 5;
+    pointer-events: none;
+}
+
 .composition p {
     cursor: pointer;
     margin: 0;
@@ -132,7 +159,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.98);
+    background-color: rgb(255, 255, 255); /* Arkadaki şeritlerin gözükmemesi için tam opak beyaz yapıldı */
     z-index: 9999;
     justify-content: center;
     align-items: center;
@@ -333,42 +360,21 @@ body {
     margin-top: 10px !important;
 }
 
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 160px;
-    background: linear-gradient(to bottom, rgb(248, 248, 248) 30%, rgba(248, 248, 248, 0) 100%);
-    z-index: 5;
-    pointer-events: none;
-}
-
-body::after {
-    content: '';
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 160px;
-    background: linear-gradient(to top, rgb(248, 248, 248) 30%, rgba(248, 248, 248, 0) 100%);
-    z-index: 5;
-    pointer-events: none;
-}
-
+/* ========================================== */
+/* MOBİL MEDYA SORGUSU (MAX-WIDTH: 768px)     */
+/* ========================================== */
 @media screen and (max-width: 768px) {
     body {
         overflow-x: hidden;
     }
 
-    body::before {
+    .composition::before {
         height: 110px;
         background: linear-gradient(to bottom, rgb(248, 248, 248) 27%, rgba(248, 248, 248, 0) 100%);
         z-index: 5;
     }
 
-    body::after {
+    .composition::after {
         height: 110px;
         background: linear-gradient(to top, rgb(248, 248, 248) 27%, rgba(248, 248, 248, 0) 100%);
         z-index: 5;

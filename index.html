@@ -26,21 +26,28 @@
     <div id="image-overlay" class="overlay" onclick="closeElement(event, 'image-overlay')"></div>
 
     <div id="contact-popup" class="overlay" onclick="closeElement(event, 'contact-popup')">
-        <div class="popup-content">
-            <h3>CONTACT</h3>
-            <p>mehmet koralp öztekin</p>
-            <p><a href="mailto:koralpoz@gmail.com">koralpoz@gmail.com</a></p>
+    <div class="popup-content">
+        <h3>CONTACT</h3>
+        <p>mehmet koralp öztekin</p>
+        <p><a href="mailto:koralpoz@gmail.com">koralpoz@gmail.com</a></p>
+        
+        <div class="social-links">
+            <p><a href="https://www.linkedin.com/in/koralp-öztekin-091b78368" target="_blank" rel="noopener">linkedin</a></p>
+            <p><a href="https://www.instagram.com/koralpoztkn?igsh=MTlwa3o0MGk4ajk0ag%3D%3D&utm_source=qr" target="_blank" rel="noopener">instagram</a></p>
         </div>
     </div>
+</div>
 
     <div id="about-popup" class="overlay" onclick="closeElement(event, 'about-popup')">
-        <div class="popup-content">
-            <h3>about</h3>
-            <p>architecture student — msgsü</p>
-            <p>focused on phenomenology & liminality</p>
-            <p>based in istanbul</p>
-        </div>
+    <div class="popup-content">
+        <h3>about</h3>
+        <p class="about-title">
+            architecture student at 
+            <a href="https://msgsu.edu.tr" target="_blank" rel="noopener">mimar sinan fine arts university</a>
+        </p>
+        <p class="about-loc">based ın ıstanbul</p>
     </div>
+</div>
 
     <div class="composition">
         <p class="pos-left thin" onclick="openImage('berlin.jpg', 'berlin, germany', '2025')">the crown of spree</p>
@@ -78,59 +85,87 @@
         
     </div>
 
-    <script>
-        const ui = document.getElementById('ui-elements');
+<script>
+    const ui = document.getElementById('ui-elements');
 
-        function openImage(imgSrc, location, date) {
-
-            ui.style.display = 'none';
-            const overlay = document.getElementById('image-overlay');
-            overlay.innerHTML = `
-                <div class="image-wrapper">
-                    <img src="${imgSrc}" id="expanded-img" alt="${location}" loading="lazy">
-                  <div id="image-info"><i>${location} — ${date}</i></div>
-                </div>
+    function openImage(imgSrc, location, date) {
+    ui.style.display = 'none';
+    const overlay = document.getElementById('image-overlay');
+    
+    overlay.innerHTML = `
+        <div class="image-wrapper">
+            <img src="./${imgSrc}" id="expanded-img" alt="${location}" loading="lazy">
+            <div id="image-info"><i>${location} — ${date}</i></div>
+        </div>
     `;
     overlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
-        }
 
-        function openProject(images, title) {
-            ui.style.display = 'none';
-            const overlay = document.getElementById('image-overlay');
-            overlay.innerHTML = `
-                <div class="project-gallery">
-                    <div class="project-info"><h2>${title}</h2></div>
-                    ${images.map(src => `<img src="${src}">`).join('')}
-                </div>`;
-            overlay.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
+    if (window.event && window.event.currentTarget) {
+        window.event.currentTarget.classList.add('visited-item');
+    }
 
-        function openPopup() {
-            ui.style.display = 'none';
-            document.getElementById('contact-popup').style.display = 'flex';
-        }
+    shuffleAndRandomize(); 
+}
 
-        function openAbout() {
-            ui.style.display = 'none';
-            document.getElementById('about-popup').style.display = 'flex';
-        }
+    function openPopup() {
+        ui.style.display = 'none';
+        document.getElementById('contact-popup').style.display = 'flex';
+    }
 
-        function closeElement(event, elementId) {
-    if (event.target.id === elementId || event.target.className === 'project-gallery' || event.target.className === 'image-wrapper') {
-        ui.style.display = 'block';
-        const overlay = document.getElementById(elementId);
-        overlay.style.display = 'none';
-        
-        document.body.style.overflow = '';
-        document.documentElement.style.overflow = ''; 
-        
-        if (elementId === 'image-overlay') {
-            overlay.innerHTML = '';
+    function openAbout() {
+        ui.style.display = 'none';
+        document.getElementById('about-popup').style.display = 'flex';
+    }
+
+    function closeElement(event, elementId) {
+        if (event.target.id === elementId || event.target.className === 'project-gallery' || event.target.className === 'image-wrapper') {
+            ui.style.display = 'block';
+            const overlay = document.getElementById(elementId);
+            overlay.style.display = 'none';
+            
+            document.body.style.overflow = '';
+            document.documentElement.style.overflow = ''; 
+            
+            if (elementId === 'image-overlay') {
+                overlay.innerHTML = '';
+            }
         }
     }
-}
-    </script>
+
+    function shuffleAndRandomize() {
+    const container = document.querySelector('.composition');
+    if (!container) return;
+
+    const items = Array.from(container.children);
+    
+    const positions = ['random-left', 'random-center', 'random-right'];
+
+    for (let i = items.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [items[i], items[j]] = [items[j], items[i]];
+    }
+
+    items.forEach(item => {
+        const targetElement = item.tagName === 'A' ? item.querySelector('p') : item;
+
+        if (targetElement) {
+            targetElement.classList.remove('pos-left', 'pos-right', 'pos-center', 'pos-indent-1', 'pos-indent-2', 'random-left', 'random-center', 'random-right');
+            
+            const randomPos = positions[Math.floor(Math.random() * positions.length)];
+            targetElement.classList.add(randomPos);
+        }
+        container.appendChild(item);
+
+        });
+    }
+
+    window.addEventListener('DOMContentLoaded', shuffleAndRandomize);
+    window.addEventListener('pageshow', function(event) {
+        if (event.persisted) {
+            shuffleAndRandomize();
+        }
+    });
+</script>
 </body>
 </html>

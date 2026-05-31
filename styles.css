@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+    display: none;
+    width: 0;
 }
 
 body, .side-name, .contact-text {
@@ -14,7 +21,6 @@ body {
     font-family: 'Montserrat', sans-serif;
     margin: 0;
     overflow-x: hidden;
-    
 }
 
 #ui-elements {
@@ -23,8 +29,8 @@ body {
 
 .side-name {
     position: fixed;
-    top: 40px;
-    left: 40px;
+    top: 50px;
+    left: 70px;
     width: max-content; 
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -49,13 +55,13 @@ body {
 
 .contact-button-wrapper {
     position: fixed;
-    bottom: 44px;
+    bottom: 50px;
     right: 70px;
     display: flex;
     align-items: center;
     gap: 10px;
     cursor: pointer;
-    z-index: 6000;
+    z-index: 8000;
 }
 
 .contact-text {
@@ -253,37 +259,6 @@ body {
     display: block;
 }
 
-@media screen and (max-width: 768px) {
-    .composition {
-        max-width: 90%; 
-        margin: 60px auto;
-    }
-
-    .side-name {
-        top: 20px;
-        left: 20px;
-        font-size: 1.1rem; 
-    }
-
-    .popup-content {
-        width: 75%; 
-        padding: 40px;
-    }
-
-    .popup-content h3 {
-        font-size: 2rem;
-    }
-
-    .image-wrapper {
-        max-width: 95%; 
-    }
-
-    .contact-button-wrapper {
-        right: 20px;
-        bottom: 20px;
-    }
-}
-
 @media (pointer: fine) {
     .overlay, .project-gallery {
         cursor: url('https://img.icons8.com/ios-glyphs/24/000000/multiply.png') 12 12, auto !important;
@@ -293,5 +268,291 @@ body {
 @media (pointer: coarse) {
     .overlay, .project-gallery {
         cursor: default !important;
+    }
+}
+
+.random-left { text-align: left !important; padding-left: 5%; }
+.random-center { text-align: center !important; }
+.random-right { text-align: right !important; padding-right: 5%; }
+
+.composition a {
+    display: block;
+    width: 100%;
+    text-decoration: none;
+}
+
+.visited-item {
+    text-decoration: line-through !important;
+    text-decoration-thickness: 1px !important;
+    opacity: 0.4 !important; 
+}
+
+.social-links {
+    margin-top: 15px; 
+    display: flex;
+    gap: 25px;
+}
+
+.social-links p a {
+    font-size: 1.1rem;
+    font-weight: 200; 
+    text-transform: lowercase; 
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.social-links p a:hover {
+    opacity: 1; 
+    border-bottom: 1px solid black; 
+}
+
+.about-title {
+    font-size: 1.3rem !important;
+    font-weight: 200 !important;
+    line-height: 1.5;
+    max-width: 450px;
+    text-align: center;
+}
+
+.about-title a {
+    color: black;
+    font-weight: 600; 
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    transition: opacity 0.3s ease;
+}
+
+.about-title a:hover {
+    opacity: 0.4;
+}
+
+.about-loc {
+    font-size: 0.9rem !important;
+    letter-spacing: 3px !important;
+    text-transform: uppercase;
+    margin-top: 10px !important;
+}
+
+/* ========================================== */
+/* DESKTOP FADE ŞERİTLER */
+/* ========================================== */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(to bottom, rgb(248, 248, 248) 30%, rgba(248, 248, 248, 0) 100%);
+    z-index: 7500;
+    pointer-events: none;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(to top, rgb(248, 248, 248) 30%, rgba(248, 248, 248, 0) 100%);
+    z-index: 7500;
+    pointer-events: none;
+}
+
+/* ========================================== */
+/* MOBİL */
+/* ========================================== */
+@media screen and (max-width: 768px) {
+
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Ad: fixed sol üst, küçük — içerikle çakışmaz */
+    .side-name {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        font-size: 0.9rem;
+        letter-spacing: 1px;
+        line-height: 1.3;
+        max-width: 160px;
+        width: auto;
+        text-align: left;
+        z-index: 9000;
+        margin: 0;
+    }
+
+    /* Contact: fixed sağ alt, küçük */
+    .contact-button-wrapper {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        gap: 8px;
+    }
+
+    .contact-text {
+        font-size: 0.75rem;
+        letter-spacing: 1px;
+    }
+
+    .dot-trigger {
+        width: 22px;
+        height: 22px;
+    }
+
+    /* Composition: üstte az boşluk bırak, yazılar rastgele dağılır */
+    .composition {
+        max-width: 90%;
+        margin: 50px auto 80px auto;
+        gap: 18px;
+    }
+
+    .composition p {
+        font-size: clamp(1.1rem, 5.5vw, 1.6rem);
+        line-height: 1.25;
+        padding: 0 5px;
+    }
+
+    /* Pozisyon sınıfları korunur — shuffleAndRandomize çalışmaya devam eder */
+    .random-left, .pos-left, .pos-indent-1 {
+        text-align: left !important;
+        padding-left: 2% !important;
+        padding-right: 0 !important;
+    }
+
+    .random-right, .pos-right, .pos-indent-2 {
+        text-align: right !important;
+        padding-right: 2% !important;
+        padding-left: 0 !important;
+    }
+
+    .random-center, .pos-center {
+        text-align: center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+
+    /* Popup */
+    .popup-content {
+        width: 88%;
+        min-height: auto;
+        padding: 35px 20px;
+        gap: 15px;
+    }
+
+    .popup-content h3 {
+        font-size: 1.8rem;
+        letter-spacing: 3px;
+    }
+
+    .popup-content p {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    .about-title {
+        font-size: 1rem !important;
+    }
+
+    .about-loc {
+        font-size: 0.8rem !important;
+        letter-spacing: 2px !important;
+    }
+
+    /* Fotoğraf overlay */
+    .image-wrapper {
+        max-width: 95%;
+    }
+
+    #expanded-img {
+        max-height: 75vh;
+    }
+
+    #image-info {
+        font-size: 0.7rem;
+        text-align: center;
+    }
+
+    .project-gallery img {
+        max-width: 95%;
+    }
+}
+@media screen and (max-width: 768px) {
+
+    /* Scrollbar gizle */
+    * {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+    *::-webkit-scrollbar {
+        display: none;
+        width: 0;
+    }
+
+    /* Üst fade şerit */
+    body::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 110px;
+        background: linear-gradient(to bottom, rgb(248, 248, 248) 27%, rgba(248, 248, 248, 0) 100%);
+        z-index: 8500;
+        pointer-events: none;
+    }
+
+    /* Alt fade şerit */
+    body::after {
+        content: '';
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 110px;
+        background: linear-gradient(to top, rgb(248, 248, 248) 27%, rgba(248, 248, 248, 0) 100%);
+        z-index: 8500;
+        pointer-events: none;
+    }
+
+    /* Contact şeridin üstünde, kenar boşluğu ad ile aynı */
+    .contact-button-wrapper {
+        z-index: 9500;
+        right: 12px;
+        bottom: 20px;
+    }
+
+    /* Yazılar kenarlardan uzak */
+    .random-left, .pos-left, .pos-indent-1 {
+        text-align: left !important;
+        padding-left: 15% !important;
+        padding-right: 0 !important;
+    }
+
+    .random-right, .pos-right, .pos-indent-2 {
+        text-align: right !important;
+        padding-right: 15% !important;
+        padding-left: 0 !important;
+    }
+
+    /* Yazı boyutu */
+    .composition p {
+        font-size: clamp(1.03rem, 5.1vw, 1.5rem);
+    }
+
+    /* Ad ve contact boyutları */
+    .side-name {
+        font-size: 0.72rem;
+    }
+
+    .contact-text {
+        font-size: 0.6rem;
+    }
+
+    .dot-trigger {
+        width: 18px;
+        height: 18px;
     }
 }

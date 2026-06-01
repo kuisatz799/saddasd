@@ -53,36 +53,28 @@ body {
     opacity: 0.3 !important;
 }
 
-.contact-button-wrapper {
+.contact-text {
     position: fixed;
     bottom: 50px;
     right: 70px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.contact-text {
     font-family: 'Montserrat', sans-serif;
-    text-transform: lowercase; 
-    font-weight: 600; 
-    font-size: 0.8rem; 
+    font-weight: 600;
+    font-size: 1.2rem;
     letter-spacing: 1px;
+    text-transform: lowercase;
     color: black;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+    z-index: 10;
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
-.dot-trigger {
-    width: 25px;
-    height: 25px;
-    background-color: black;
-    border-radius: 50%;
-    transition: transform 0.2s ease;
-}
-
-.contact-button-wrapper:hover .dot-trigger {
-    transform: scale(1.1);
+.contact-text:hover {
+    opacity: 0.3;
 }
 
 .composition {
@@ -93,9 +85,6 @@ body {
     gap: 15px;
 }
 
-/* ========================================== */
-/* FADE ŞERİTLER (SADECE ANA MENÜ İÇİN)       */
-/* ========================================== */
 .composition::before {
     content: '';
     position: fixed;
@@ -360,9 +349,7 @@ body {
     margin-top: 10px !important;
 }
 
-/* ========================================== */
-/* MOBİL MEDYA SORGUSU (MAX-WIDTH: 768px)     */
-/* ========================================== */
+
 @media screen and (max-width: 768px) {
     body {
         overflow-x: hidden;
@@ -394,22 +381,10 @@ body {
         margin: 0;
     }
 
-    .contact-button-wrapper {
-        position: fixed;
-        right: 12px;
-        bottom: 20px;
-        gap: 8px;
-        z-index: 10;
-    }
-
     .contact-text {
-        font-size: 0.6rem;
-        letter-spacing: 1px;
-    }
-
-    .dot-trigger {
-        width: 18px;
-        height: 18px;
+        font-size: 0.72rem;
+        right: 20px;
+        bottom: 20px;
     }
 
     .composition {

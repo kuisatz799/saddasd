@@ -43,18 +43,18 @@
             <img src="p7.jpg" alt="Therapy Detail">
         </main>
     </div>
-</body>
-<div class="wip-overlay" id="wip-overlay" onclick="closeWip(event)">
-    <div class="popup-content">
-        <p>this project has not yet<br>reached its final form<br>for exhibition</p>
-    </div>
-    <script>
+      <script>
 function closeWip(event) {
     if (event.target.id === 'wip-overlay') {
         document.getElementById('wip-overlay').remove();
     }
 }
 </script>
+</body>
+<div class="wip-overlay" id="wip-overlay" onclick="closeWip(event)">
+    <div class="popup-content">
+        <p>this project has not yet<br>reached its final form<br>for exhibition</p>
+    </div>
 
 </div>
 

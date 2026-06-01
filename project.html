@@ -1,6 +1,34 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+    <style>
+.wip-overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(248, 248, 248, 0.85);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 9999;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (pointer: fine) {
+    .wip-overlay {
+        cursor: url('https://img.icons8.com/ios-glyphs/24/000000/multiply.png') 12 12, auto;
+    }
+}
+</style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Museum of Nothing - Koralp</title>
@@ -16,5 +44,18 @@
             <img src="p7.jpg" alt="Museum Detail 2">
         </main>
     </div>
+    <div class="wip-overlay" id="wip-overlay" onclick="closeWip(event)">
+    <div class="popup-content">
+        <p>this project has not yet<br>reached its final form<br>for exhibition</p>
+    </div>
+</div>
+
+<script>
+function closeWip(event) {
+    if (event.target.id === 'wip-overlay') {
+        document.getElementById('wip-overlay').remove();
+    }
+}
+</script>
 </body>
 </html>
